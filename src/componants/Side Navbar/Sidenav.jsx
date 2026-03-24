@@ -36,7 +36,7 @@ const Sidenav = React.memo(({ isOpen }) => {
       message.success("Successfully logged out");
       setShowLogoutModal(false);
       setTimeout(() => {
-        window.location.href = "/admin/login";
+        window.location.href = "/login";
       }, [1000]);
     } catch (error) {
       errorResponseHandler(error);
