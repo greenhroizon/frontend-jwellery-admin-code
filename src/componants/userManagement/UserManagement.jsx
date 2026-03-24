@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { message, Switch, Pagination } from "antd";
+import { Switch, Pagination } from "antd";
 import { AiOutlineEye, AiFillDelete } from "react-icons/ai";
 import { CiEdit } from "react-icons/ci";
 import {

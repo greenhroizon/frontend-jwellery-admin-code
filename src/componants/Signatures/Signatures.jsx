@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { getAllSignatureApi, deleteSignatureApi } from "../../common/services";
 import { CiEdit } from "react-icons/ci";
 import { AiFillDelete } from "react-icons/ai";
-import { AiOutlineEye } from "react-icons/ai";
 import { message, Pagination } from "antd";
 import EditModal from "./EditModal";
 import DeleteModal from "../deleteModal/DeleteModal";
@@ -13,7 +12,6 @@ import { image_url } from "../../common/env";
 
 const Signatures = () => {
   const [signaturesData, setSignaturesData] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
 
