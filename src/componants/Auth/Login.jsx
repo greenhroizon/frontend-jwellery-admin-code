@@ -204,7 +204,7 @@ const Login = () => {
 
           message.success(response?.message);
           setTimeout(() => {
-            window.location.href = "/admin/home";
+            window.location.href = "/home";
           }, 500);
           return;
         }
