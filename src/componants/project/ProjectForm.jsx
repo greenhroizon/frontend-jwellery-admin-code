@@ -20,7 +20,7 @@ const ProductForm = ({ onClose, onSaved, mode = "add", initial = null }) => {
     features: "",
     mrp: "",
     sellingPrice: "",
-
+    bestSeller: false,
     quantity: "",
     categoryId: "",
     selection: "shopByProd",
@@ -79,6 +79,7 @@ const ProductForm = ({ onClose, onSaved, mode = "add", initial = null }) => {
         benefits: initial?.benefits || "",
         use: initial?.use || "",
         features: initial?.features || "",
+        bestSeller: initial?.bestSeller || false,
         mrp: initial?.mrp || "",
         sellingPrice: initial?.sellingPrice || "",
         quantity: initial?.quantity || "",
@@ -104,10 +105,14 @@ const ProductForm = ({ onClose, onSaved, mode = "add", initial = null }) => {
   }, [mode, initial]);
 
   /* ================= HANDLERS ================= */
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
+const handleChange = (e) => {
+  const { name, value, type, checked } = e.target;
+
+  setForm((prev) => ({
+    ...prev,
+    [name]: type === "checkbox" ? checked : value,
+  }));
+};
 
   const onSelectImages = (e) => {
     const files = Array.from(e.target.files || []);
@@ -335,6 +340,17 @@ const ProductForm = ({ onClose, onSaved, mode = "add", initial = null }) => {
                 className="border border-gray-900 p-2 w-full"
               />
             </div>
+
+             <div>
+  <label className="block mb-1">Best Seller</label>
+  <input
+    type="checkbox"
+    name="bestSeller"
+    checked={form.bestSeller}
+    onChange={handleChange}
+    className="border border-gray-900 p-2"
+  />
+</div>
           </div>
 
           {/* SELECTION TYPE */}
